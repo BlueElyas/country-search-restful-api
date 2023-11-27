@@ -12,7 +12,7 @@ export default function CountryCards() {
     return(
         <>
         <div className="bg-gray-800 min-h-[85%]">
-            <div className=" px-24 pt-4 pb-2">
+            <div className=" px-24 pt-4 pb-2 flex justify-between ">
                 <input 
                     type="text" 
                     className="bg-gray-700 rounded-sm py-2 px-8 w-1/2 placeholder:items-start text-gray-200" 
@@ -20,6 +20,9 @@ export default function CountryCards() {
                     value={searchElement}
                     onChange={handleChange}
                 />
+                <select name="" id="" className="bg-gray-700 px-3 text-gray-200 font-bold">
+                    <option hidden value>Filter by region</option>
+                </select>
             </div>
             <div className=" flex flex-wrap px-8 pb-16">  
                 {<Card data={data} searchInput={searchElement}/>}           

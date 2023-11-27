@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 export default function Card( { data, searchInput } ) {
     // const [search, setSearch] = useState(' ')
 
-    console.log(searchInput)
+    console.log(data.filter(e => {
+        if(e.type){
+            return e
+        }
+    }))
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
@@ -24,6 +28,7 @@ export default function Card( { data, searchInput } ) {
                 </div>
         )
     })
+
 
     const filteredData = data.filter(e => {
         if (searchInput === '') {
