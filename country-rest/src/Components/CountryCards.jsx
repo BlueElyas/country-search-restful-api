@@ -7,11 +7,11 @@ export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
     
     const handleChange = e => {
-        setSearchElement(e.target.value)
+        setSearchElement(e.target.value.toLowerCase())
     }
     return(
         <>
-            <div className="bg-gray-800 px-24 py-8 ">
+            <div className="bg-gray-800 px-24 pt-4 pb-2">
                 <input 
                     type="text" 
                     className="bg-gray-700 rounded-sm py-2 px-8 w-1/2 placeholder:items-start text-gray-200" 
@@ -20,7 +20,7 @@ export default function CountryCards() {
                     onChange={handleChange}
                 />
             </div>
-            <div className="bg-gray-800 flex flex-wrap px-8 ">  
+            <div className="bg-gray-800 flex flex-wrap px-8 pb-16">  
                 {<Card data={data} searchInput={searchElement}/>}           
             </div>
         </>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Card( { data, searchInput } ) {
+    // const [search, setSearch] = useState(' ')
 
     console.log(searchInput)
 
@@ -8,11 +9,11 @@ export default function Card( { data, searchInput } ) {
         return (
                 <div 
                     className="bg-gray-700 text-white flex 
-                    flex-col justify-center rounded-lg mt-8 h-80 ml-16 cursor-pointer w-1/5" 
+                    flex-col justify-center rounded-lg mt-6  ml-16 cursor-pointer w-1/5" 
                     key={index}      
                 >
                     <img className=" rounded-t-lg w-full h-1/2" src={element.flags.png} onClick={() => <Card/>}/>
-                    <div className=" px-4 h-1/2 flex flex-col">
+                    <div className=" px-4 h-full flex flex-col py-2">
                         <h5 className="my-4 font-bold w-3/4">{element.name}</h5>
                         <ul className="w-full ">
                             <li>Population: <span className="text-gray-300"> {element.population}</span></li>
@@ -24,13 +25,20 @@ export default function Card( { data, searchInput } ) {
         )
     })
 
-    const filteredElements = data.filter((element, index) => {
-        return element.name.toLowerCase().trim() === searchInput.toLowerCase().trim()
+    const filteredData = data.filter(e => {
+        if (searchInput === '') {
+            return e
+        }else {
+            return e.name.toLowerCase().includes(searchInput)
+        }
     })
+
+
 
     return(
         <>
-            {searchInput ?  mappedElement(filteredElements) : mappedElement(data)}
+            { searchInput ? mappedElement(filteredData) : mappedElement(data)}
+            
         </>
     )
 
