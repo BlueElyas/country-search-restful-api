@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Card( { data, searchInput } ) {
+export default function Card( { data, searchInput, regionData } ) {
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
@@ -31,9 +31,13 @@ export default function Card( { data, searchInput } ) {
         }
     })
 
+ const render = searchInput ? mappedElement(filteredData) : regionData.length > 0 && mappedElement(regionData) || mappedElement(data)
+
+    
+
     return(
         <>
-            { searchInput ? mappedElement(filteredData) : mappedElement(data)}
+            { render }
             
         </>
     )
