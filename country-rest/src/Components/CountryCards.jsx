@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import data from '../../data.json/'
 import Card from "./Card";
 
@@ -19,8 +19,7 @@ export default function CountryCards() {
                 )
             })
 
-    console.log(region)
-
+    const regionData = data.filter(d => d.region === region)
 
     return(
         <>
@@ -42,8 +41,8 @@ export default function CountryCards() {
                     {regionTypes}
                 </select>
             </div>
-            <div className=" flex flex-wrap px-8 pb-16">  
-                {<Card data={data} searchInput={searchElement}/>}           
+            <div className="flex flex-wrap px-8 pb-16">  
+                {<Card data={data} searchInput={searchElement} regionData={regionData}/>}           
             </div>
         </div>
         </>
