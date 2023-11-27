@@ -10,7 +10,7 @@ export default function Card( { data, searchInput } ) {
                     key={index}      
                 >
                     <img className=" rounded-t-lg w-full h-1/2" src={element.flags.png}/>
-                    <div className=" px-4 h-full flex flex-col py-2">
+                    <div className=" px-4 h-1/2 flex flex-col py-2">
                         <h5 className="my-4 font-bold w-3/4">{element.name}</h5>
                         <ul className="w-full ">
                             <li>Population: <span className="text-gray-300"> {element.population}</span></li>
@@ -30,8 +30,6 @@ export default function Card( { data, searchInput } ) {
             return e.name.toLowerCase().includes(searchInput)
         }
     })
-
-
 
     return(
         <>
