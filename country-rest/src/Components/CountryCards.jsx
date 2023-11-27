@@ -5,13 +5,21 @@ import Card from "./Card";
 
 export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
+    const [cardData, setCardData] = useState(data)
     
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
     }
 
-    const regionTypes = data.filter(d => d.region ? d.region : null)
+    const regionTypes = Array.from(
+        new Set(data.map(d => d.region)) 
+    ).map((region, index) => {
+        return(
+            <option key={index} value={`${region}`}>{region}</option>
+        )
+    })
     console.log(regionTypes)
+
 
     return(
         <>
@@ -24,13 +32,9 @@ export default function CountryCards() {
                     value={searchElement}
                     onChange={handleChange}
                 />
-                <select name="" id="" className="bg-gray-700 px-3 text-gray-200 font-bold">
-                    <option hidden value>Filter by region</option>
-                    <option value="Africa">Africa</option>
-                    <option value="America">America</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europe">Europe</option>
-                    <option value="Oceania">Oceania</option>
+                <select name="region-select" className="bg-gray-700 px-3 text-gray-200 font-bold">
+                    <option disabled selected>Filter by region</option>
+                    {regionTypes}
                 </select>
             </div>
             <div className=" flex flex-wrap px-8 pb-16">  
