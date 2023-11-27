@@ -20,7 +20,7 @@ export default function CountryCards() {
                     onChange={handleChange}
                 />
             </div>
-            <div className="bg-gray-800 flex flex-wrap px-8">  
+            <div className="bg-gray-800 flex flex-wrap px-8 ">  
                 {<Card data={data} searchInput={searchElement}/>}           
             </div>
         </>
