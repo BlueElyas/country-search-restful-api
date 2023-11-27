@@ -11,7 +11,8 @@ export default function CountryCards() {
     }
     return(
         <>
-            <div className="bg-gray-800 px-24 pt-4 pb-2">
+        <div className="bg-gray-800 min-h-[85%]">
+            <div className=" px-24 pt-4 pb-2">
                 <input 
                     type="text" 
                     className="bg-gray-700 rounded-sm py-2 px-8 w-1/2 placeholder:items-start text-gray-200" 
@@ -20,9 +21,10 @@ export default function CountryCards() {
                     onChange={handleChange}
                 />
             </div>
-            <div className="bg-gray-800 flex flex-wrap px-8 pb-16">  
+            <div className=" flex flex-wrap px-8 pb-16">  
                 {<Card data={data} searchInput={searchElement}/>}           
             </div>
+        </div>
         </>
     )
 }
