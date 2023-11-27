@@ -9,6 +9,10 @@ export default function CountryCards() {
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
     }
+
+    const regionTypes = data.filter(d => d.region ? d.region : null)
+    console.log(regionTypes)
+
     return(
         <>
         <div className="bg-gray-800 min-h-[85%]">
@@ -22,6 +26,11 @@ export default function CountryCards() {
                 />
                 <select name="" id="" className="bg-gray-700 px-3 text-gray-200 font-bold">
                     <option hidden value>Filter by region</option>
+                    <option value="Africa">Africa</option>
+                    <option value="America">America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
                 </select>
             </div>
             <div className=" flex flex-wrap px-8 pb-16">  
