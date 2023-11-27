@@ -5,13 +5,12 @@ import Card from "./Card";
 
 export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
+    
     const handleChange = e => {
         setSearchElement(e.target.value)
     }
-
     return(
         <>
-            
             <div className="bg-gray-800 px-24 py-8 ">
                 <input 
                     type="text" 
@@ -22,7 +21,7 @@ export default function CountryCards() {
                 />
             </div>
             <div className="bg-gray-800 flex flex-wrap px-8">  
-                {<Card data={data}/>}           
+                {<Card data={data} searchInput={searchElement}/>}           
             </div>
         </>
     )
