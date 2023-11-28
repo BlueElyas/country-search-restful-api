@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Card( { data, searchInput, regionData } ) {
+    const [selectedCountry, setSelectedCountry] = useState(null)
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
