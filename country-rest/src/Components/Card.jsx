@@ -24,7 +24,7 @@ export default function Card( { data, searchInput, regionData } ) {
                     <div className=" px-4 h-1/2 flex flex-col py-2">
                         <h5 className="my-4 font-bold w-3/4">{element.name}</h5>
                         <ul className="w-full ">
-                            <li>Population: <span className="text-gray-300"> {element.population}</span></li>
+                            <li>Population: <span className="text-gray-300"> {element.population.toLocaleString()}</span></li>
                             <li>Region: <span className="text-gray-300"> {element.region}</span></li>
                             <li>Capital: <span className="text-gray-300"> {element.capital}</span></li>
                         </ul>
