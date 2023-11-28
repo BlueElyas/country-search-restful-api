@@ -1,7 +1,16 @@
 import React, { useState } from "react";
+import CountryPage from "./CountryPage";
 
 export default function Card( { data, searchInput, regionData } ) {
     const [selectedCountry, setSelectedCountry] = useState(null)
+
+    const handleCountryClick = country => {
+        setSelectedCountry(country)
+    }
+
+    const handleGoBack = () => {
+        setSelectedCountry(null)
+    }
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
@@ -41,7 +50,7 @@ export default function Card( { data, searchInput, regionData } ) {
 
     return(
         <>
-            { render }
+            { selectedCountry ? <CountryPage/> : render }
         </>
     )
 
