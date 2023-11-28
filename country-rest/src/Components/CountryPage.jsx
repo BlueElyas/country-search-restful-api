@@ -15,16 +15,16 @@ export default function CountryPage( { country, onBack, data } ) {
 
     const borderedCountry = borderedCountryArray.map((c, index) => {
         return(
-            <p key={index} className="bg-gray-700 p-2 mg-2 text-xs text-gray-400 w-max ">{c.name}</p>
+            <p key={index} className="bg-gray-700 p-2 mg-2 text-xs text-gray-400 w-max  ">{c.name}</p>
         )
     }) 
 
     return(
         <>
-            <div className="text-gray-200 flex flex-col justify-start items-start px-16">
+            <div className="text-gray-200 flex flex-col justify-start items-start px-16 h-128">
                 <button className="mt-16 shadow-md bg-gray-700 py-1 px-4" onClick={onBack}> Go Back</button>
                 <div className="flex justify-center items-center gap-16 mt-8">
-                    <img src={country.flags.png} alt="" />
+                    <img src={country.flags.png} alt={`${country.name} flag`}/>
                     <div className="">
                         <h1 className="text-2xl font-bold mb-4">{country.name}</h1>
                         <div className="">
