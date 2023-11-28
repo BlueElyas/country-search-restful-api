@@ -21,6 +21,8 @@ export default function CountryCards() {
 
     const regionData = data.filter(d => d.region === region)
 
+    console.log(data)
+
     return(
         <>
         <div className="bg-gray-800 min-h-[85%]">

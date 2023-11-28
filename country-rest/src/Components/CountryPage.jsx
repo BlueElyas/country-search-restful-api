@@ -34,13 +34,13 @@ export default function CountryPage( { country, onBack, data, changeCountry } ) 
                         <h1 className="text-2xl font-bold mb-4">{country.name}</h1>
                         <div className="">
                             <ul className="grid grid-cols-2 gap-2 text-sm">
-                                <li>Native Name: <span className="text-gray-400">{country.altSpellings[1]}</span></li>
+                                <li>Native Name: <span className="text-gray-400">{country.altSpellings ? country.altSpellings[0] : null}</span></li>
                                 <li>Population: <span className="text-gray-400">{country.population.toLocaleString()}</span></li>
                                 <li>Region: <span className="text-gray-400">{country.region}</span></li>
                                 <li>Sub Region: <span className="text-gray-400">{country.subregion}</span></li>
                                 <li>Capital: <span className="text-gray-400">{country.capital}</span></li>
                                 <li>Top Level Domain: <span className="text-gray-400">{country.topLevelDomain.join('')}</span></li>
-                                <li>Currencies: <span className="text-gray-400">{country.currencies[0].name}</span></li>
+                                <li>Currencies: <span className="text-gray-400">{country.currencies ? country.currencies[0].name : null}</span></li>
                                 <li>Languages: <span className="text-gray-400">{languages}</span></li>
                             </ul>
                         </div>
