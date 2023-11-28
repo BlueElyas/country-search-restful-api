@@ -22,23 +22,25 @@ export default function Card( { data, searchInput, regionData } ) {
         )
     })
 
+    const mappedRegionData =[...new Set(regionData.map(e=>e.region))]
 
     const filteredData = data.filter(e => {
-        if (searchInput === '') {
-            return e
-        }else {
-            return e.name.toLowerCase().includes(searchInput)
+        const eVariable = e.name.toLowerCase().includes(searchInput.toLowerCase())
+        const eRegion = mappedRegionData[0] ? e.region === mappedRegionData[0] : true
+
+        if (searchInput === '' && !eRegion) {
+            return true
+        } else {
+            return eVariable && eRegion
         }
     })
 
  const render = searchInput ? mappedElement(filteredData) : regionData.length > 0 && mappedElement(regionData) || mappedElement(data)
 
-    
 
     return(
         <>
             { render }
-            
         </>
     )
 
