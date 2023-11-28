@@ -51,7 +51,7 @@ export default function Card( { data, searchInput, regionData } ) {
 
     return(
         <>
-            { selectedCountry ? <CountryPage country={selectedCountry} onBack={handleGoBack}/> : render }
+            { selectedCountry ? <CountryPage country={selectedCountry} onBack={handleGoBack} data={data}/> : render }
         </>
     )
 
