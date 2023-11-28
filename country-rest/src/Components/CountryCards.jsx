@@ -34,7 +34,7 @@ export default function CountryCards() {
                 />
                 <select 
                     name="region-select" 
-                    className="bg-gray-700 px-3 text-gray-200 font-bold"  
+                    className="bg-gray-700 px-3 text-gray-200 font-bold cursor-pointer"  
                     onChange={(e) => setRegion(e.target.value)}
                 >
                     <option value=''>Filter by region</option>
