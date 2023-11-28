@@ -29,7 +29,7 @@ export default function CountryCards() {
             <div className=" px-24 pt-4 pb-2 flex justify-between ">
                 <input 
                     type="text" 
-                    className="bg-gray-700 rounded-sm py-2 px-8 w-1/2 placeholder:items-start text-gray-200" 
+                    className="bg-gray-700 rounded-sm py-2 px-8 w-1/2 placeholder:items-start text-gray-200 " 
                     placeholder="Search for a country..." 
                     value={searchElement}
                     onChange={handleChange}
