@@ -17,7 +17,8 @@ export default function Card( { data, searchInput, regionData } ) {
                 <div 
                     className="bg-gray-700 text-white flex 
                     flex-col justify-center rounded-lg mt-6  ml-16 cursor-pointer" 
-                    key={index}      
+                    key={index}
+                    onClick={() => handleCountryClick(element)}      
                 >
                     <img className=" rounded-t-lg w-full h-1/2" src={element.flags.png}/>
                     <div className=" px-4 h-1/2 flex flex-col py-2">
@@ -50,7 +51,7 @@ export default function Card( { data, searchInput, regionData } ) {
 
     return(
         <>
-            { selectedCountry ? <CountryPage/> : render }
+            { selectedCountry ? <CountryPage country={selectedCountry} onBack={handleGoBack}/> : render }
         </>
     )
 
