@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CountryPage( { country, onBack, data } ) {
+export default function CountryPage( { country, onBack, data, changeCountry } ) {
     const languages = country.languages.map(e => e.name).join(', ')
 
     const countryBorder = country.borders && country.borders.length > 0 ? country.borders : null
@@ -15,7 +15,12 @@ export default function CountryPage( { country, onBack, data } ) {
 
     const borderedCountry = borderedCountryArray.map((c, index) => {
         return(
-            <p key={index} className="bg-gray-700 p-2 mg-2 text-xs text-gray-400 w-max  ">{c.name}</p>
+            <div 
+                onClick={() => changeCountry(c)}  
+                key={index} 
+                className="bg-gray-700 p-2 mg-2 text-xs text-gray-400 w-max cursor-pointer ">
+                    {c.name}
+            </div>
         )
     }) 
 

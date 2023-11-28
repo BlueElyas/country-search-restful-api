@@ -8,6 +8,7 @@ export default function Card( { data, searchInput, regionData } ) {
         setSelectedCountry(country)
     }
 
+    console.log(selectedCountry)
     const handleGoBack = () => {
         setSelectedCountry(null)
     }
@@ -51,7 +52,13 @@ export default function Card( { data, searchInput, regionData } ) {
 
     return(
         <>
-            { selectedCountry ? <CountryPage country={selectedCountry} onBack={handleGoBack} data={data}/> : render }
+            { selectedCountry ? 
+            <CountryPage 
+                country={selectedCountry} 
+                onBack={handleGoBack}  
+                data={data}
+                changeCountry={handleCountryClick}/> 
+                : render }
         </>
     )
 
