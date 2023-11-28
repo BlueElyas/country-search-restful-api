@@ -8,7 +8,6 @@ export default function Card( { data, searchInput, regionData } ) {
         setSelectedCountry(country)
     }
 
-    console.log(selectedCountry)
     const handleGoBack = () => {
         setSelectedCountry(null)
     }
