@@ -23,7 +23,7 @@ export default function CountryCards() {
 
     return(
         <>
-        <div className="bg-gray-800 min-h-[85%]">
+        <div className="bg-gray-800 min-h-[85%] sm:flex sm:flex-col sm:items-center sm:justify-center">
             <div className=" px-24 pt-4 pb-2 flex justify-between ">
                 <input 
                     type="text" 
@@ -41,7 +41,7 @@ export default function CountryCards() {
                     {regionTypes}
                 </select>
             </div>
-            <div className="flex flex-wrap px-8 pb-16 ">  
+            <div className="flex flex-wrap px-8 pb-16">  
                 {<Card data={data} searchInput={searchElement} regionData={regionData}/>}           
             </div>
         </div>
