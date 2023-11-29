@@ -35,7 +35,7 @@ export default function CountryCards() {
             <div className=" px-4 pt-4 pb-2 flex justify-between gap-4 sm:px-12 flex-col items-start sm:flex-row ">
                 {renderInput ? <input 
                     type="text" 
-                    className="bg-gray-700 rounded-sm py-2 px-3 text-gray-200 self-stretch" 
+                    className="bg-gray-700 rounded-sm py-2 px-3 text-gray-200 self-stretch sm:self-start sm:px-16" 
                     placeholder="Search for a country..." 
                     value={searchElement}
                     onChange={handleChange}
