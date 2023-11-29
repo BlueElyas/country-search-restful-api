@@ -16,7 +16,7 @@ export default function Card( { data, searchInput, regionData } ) {
         return (
                 <div 
                     className="bg-gray-700 text-white flex 
-                    flex-col justify-center rounded-lg mt-6  ml-16 cursor-pointer hover:scale-110 hover:bg-gray-300 hover:text-gray-700" 
+                    flex-col justify-center rounded-lg mt-6  ml-4 cursor-pointer hover:scale-110 hover:bg-gray-300 hover:text-gray-700" 
                     key={index}
                     onClick={() => handleCountryClick(element)}      
                 >

@@ -6,6 +6,7 @@ import Card from "./Card";
 export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
     const [region, setRegion] = useState('')
+    const [renderInput, setRenderInput] = useState(true)
     
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
@@ -23,26 +24,26 @@ export default function CountryCards() {
 
     return(
         <>
-        <div className="bg-gray-800 min-h-[85%] sm:flex sm:flex-col sm:items-center sm:justify-center">
-            <div className=" px-24 pt-4 pb-2 flex justify-between ">
-                <input 
+        <div className="bg-gray-800 min-h-[85%]">
+            <div className=" px-4 pt-4 pb-2 flex justify-between ">
+                {renderInput ? <input 
                     type="text" 
-                    className="bg-gray-700 rounded-sm py-2 px-8 w-1/2  text-gray-200 " 
+                    className="bg-gray-700 rounded-sm py-2 px-3 text-gray-200" 
                     placeholder="Search for a country..." 
                     value={searchElement}
                     onChange={handleChange}
-                />
-                <select 
+                /> : null}
+                 {renderInput ? <select 
                     name="region-select" 
-                    className="bg-gray-700 px-3 text-gray-200 font-bold cursor-pointer"  
+                    className="bg-gray-700 px-1 text-gray-200 font-bold cursor-pointer"  
                     onChange={(e) => setRegion(e.target.value)}
                 >
                     <option value=''>Filter by region</option>
                     {regionTypes}
-                </select>
+                </select>: null}
             </div>
             <div className="flex flex-wrap px-8 pb-16">  
-                {<Card data={data} searchInput={searchElement} regionData={regionData}/>}           
+                {<Card data={data} searchInput={searchElement} regionData={regionData} setRenderInput={setRenderInput}/>}           
             </div>
         </div>
         </>
