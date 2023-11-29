@@ -4,11 +4,25 @@ import CountryCards from './Components/CountryCards'
 import Footer from './Components/Footer'
 
 function App() {
+  const[theme, setTheme] = useState("light")
+
+  useEffect(()=>{
+     if(theme === "dark") {
+      document.documentElement.classList.add("dark")
+     } else {
+      document.documentElement.classList.remove("dark")
+     }
+  },[theme])
+
+  const handleThemeChange = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   return (
     
     <>
       <main className="h-screen">
-        <Header/>
+        <Header handleThemeChange={handleThemeChange}/>
         <CountryCards/>
         <Footer/>
       </main>
