@@ -25,7 +25,7 @@ export default function CountryCards() {
     return(
         <>
         <div className="bg-gray-800 min-h-[85%]">
-            <div className=" px-4 pt-4 pb-2 flex justify-between ">
+            <div className=" px-4 pt-4 pb-2 flex justify-between gap-4 ">
                 {renderInput ? <input 
                     type="text" 
                     className="bg-gray-700 rounded-sm py-2 px-3 text-gray-200" 
