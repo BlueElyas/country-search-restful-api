@@ -7,6 +7,7 @@ export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
     const [region, setRegion] = useState('')
     const [renderInput, setRenderInput] = useState(true)
+    // const [countryData, setCountryData] = useState(null)
     
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
@@ -21,6 +22,12 @@ export default function CountryCards() {
             })
 
     const regionData = data.filter(d => d.region === region)
+
+    // useEffect(() => {
+    //     fetch("https://restcountries.com/v3.1/all")
+    //       .then(res => res.json())
+    //       .then(data => console.log(data))
+    //   },[])
 
     return(
         <>

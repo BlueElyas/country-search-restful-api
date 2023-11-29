@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './Components/Header'
 import CountryCards from './Components/CountryCards'
 import Footer from './Components/Footer'

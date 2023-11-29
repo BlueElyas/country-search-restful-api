@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CountryPage from "./CountryPage";
 
 export default function Card( { data, searchInput, regionData, setRenderInput } ) {
@@ -13,6 +13,13 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
         setSelectedCountry(null)
         setRenderInput(true)
     }
+
+    useEffect(() => {
+        fetch("https://restcountries.com/v3.1/all")
+          .then(res => res.json())
+          .then(data => console.log(data))
+      },[selectedCountry])
+    
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
