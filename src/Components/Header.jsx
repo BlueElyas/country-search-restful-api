@@ -3,7 +3,7 @@ import React from "react";
 export default function Header( { handleThemeChange } ) {
     return(
         <>
-            <div className="bg-white dark:bg-gray-700 text-white flex justify-between py-4 px-8">
+            <div className="bg-white dark:bg-gray-700 text-gray-800 dark:text-white flex justify-between py-4 px-8 shadow-md">
                 <h1 className="font-bold text-xl">Where in the world?</h1>
                 <div className="flex items-center justify-center">
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="all" xmlns="http://www.w3.org/2000/svg">

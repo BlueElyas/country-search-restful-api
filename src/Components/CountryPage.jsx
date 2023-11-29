@@ -18,7 +18,9 @@ export default function CountryPage( { country, onBack, data, changeCountry } ) 
             <div 
                 onClick={() => changeCountry(c)}  
                 key={index} 
-                className="bg-gray-700 p-2 mg-2 text-xs text-gray-400 w-max cursor-pointer hover:scale-125 hover:bg-gray-300 hover:text-gray-700">
+                className="bg-white dark:bg-gray-700 p-2 mg-2 text-xs dark:text-gray-400 w-max cursor-pointer 
+                hover:scale-125 hover:bg-gray-300 hover:text-gray-700
+                shadow-md">
                     {c.name}
             </div>
         )
@@ -26,16 +28,16 @@ export default function CountryPage( { country, onBack, data, changeCountry } ) 
 
     return(
         <>
-            <div className="text-gray-200 flex flex-col justify-start items-start px-16 h-128">
+            <div className="flex flex-col justify-start items-start px-16 h-128">
                 <div className="">
                     <button 
-                    className="relative mt-16 shadow-md bg-gray-700 py-1 pr-4 pl-12 hover:scale-125 hover:bg-gray-300 hover:text-gray-700 " 
+                    className="relative mt-16 shadow-md dark:bg-gray-700 py-1 pr-4 pl-12 hover:scale-125 hover:bg-gray-300
+                     hover:text-gray-700 rounded-md bg-white text-gray-700 dark:text-white" 
                     onClick={onBack}>
-                    <svg className="w-9 h-9 absolute left-2 top-[-2px] text-gray-300" fill="#fff" viewBox="0 0 24 24" id="left-arrow" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" ><path id="primary" d="M21,11H5.41l1.3-1.29A1,1,0,0,0,5.29,8.29l-3,3a1,1,0,0,0,0,1.42l3,3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L5.41,13H21a1,1,0,0,0,0-2Z"></path></svg>
+                    <svg className="w-9 h-9 absolute left-2 top-[-2px] text-gray-300" fill="#00000" viewBox="0 0 24 24" id="left-arrow" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" ><path id="primary" d="M21,11H5.41l1.3-1.29A1,1,0,0,0,5.29,8.29l-3,3a1,1,0,0,0,0,1.42l3,3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L5.41,13H21a1,1,0,0,0,0-2Z"></path></svg>
                     Go Back</button>
-
                 </div>
-                <div className="flex justify-center items-center gap-16 mt-8 flex-col sm:flex-row">
+                <div className="flex justify-center items-center gap-16 mt-8 flex-col sm:flex-row text-gray-800 dark:text-gray-200  ">
                     <img src={country.flags.png} alt={`${country.name} flag`}/>
                     <div>
                         <h1 className="text-2xl font-bold mb-4">{country.name}</h1>

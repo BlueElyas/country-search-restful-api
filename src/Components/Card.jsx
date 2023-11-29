@@ -24,8 +24,10 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (
                 <div 
-                    className="bg-gray-700 text-white flex 
-                    flex-col justify-center rounded-lg mt-6  ml-4 cursor-pointer hover:scale-110 hover:bg-gray-300 hover:text-gray-700" 
+                    className="bg-white dark:bg-gray-700 text-gray-800 dark:text-white flex 
+                    flex-col justify-center rounded-lg mt-6  ml-4 cursor-pointer 
+                    hover:scale-110 hover:bg-gray-300 hover:text-gray-700
+                     shadow-md" 
                     key={index}
                     onClick={() => handleCountryClick(element)}      
                 >
@@ -33,9 +35,9 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
                     <div className=" px-4 h-1/2 flex flex-col py-2">
                         <h5 className="my-4 font-bold w-3/4">{element.name}</h5>
                         <ul className="w-full ">
-                            <li>Population: <span className="text-gray-300"> {element.population.toLocaleString()}</span></li>
-                            <li>Region: <span className="text-gray-300"> {element.region}</span></li>
-                            <li>Capital: <span className="text-gray-300"> {element.capital}</span></li>
+                            <li className="font-bold">Population: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.population.toLocaleString()}</span></li>
+                            <li className="font-bold">Region: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.region}</span></li>
+                            <li className="font-bold">Capital: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.capital}</span></li>
                         </ul>
                     </div>
                 </div>
