@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import CountryPage from "./CountryPage";
 
-export default function Card( { data, searchInput, regionData } ) {
+export default function Card( { data, searchInput, regionData, setRenderInput } ) {
     const [selectedCountry, setSelectedCountry] = useState(null)
 
     const handleCountryClick = country => {
         setSelectedCountry(country)
+        setRenderInput(false)
     }
 
     const handleGoBack = () => {
         setSelectedCountry(null)
+        setRenderInput(true)
     }
 
     const mappedElement = (newData) => newData.map((element, index) => {
