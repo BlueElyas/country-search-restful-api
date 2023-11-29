@@ -44,6 +44,7 @@ export default function CountryCards() {
             })))
     },[])
 
+    console.log(countryData)
 
     return(
         <>
@@ -77,13 +78,13 @@ export default function CountryCards() {
                     cursor-pointer py-4 px-8 shadow-md"  
                     onChange={(e) => setRegion(e.target.value)}
                     >
-                    <option value=''>Filter by region</option>
-                    {regionTypes}
+                        <option value=''>Filter by region</option>
+                        {regionTypes}
                     </select>: null
                 }
             </div>
             <div className="flex flex-wrap px-8 pb-16">  
-                {<Card data={data} searchInput={searchElement} regionData={regionData} setRenderInput={setRenderInput}/>}           
+                {<Card data={data} searchInput={searchElement} regionData={regionData} setRenderInput={setRenderInput} apiData={countryData}/>}           
             </div>
         </div>
         </>
