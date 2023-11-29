@@ -12,14 +12,7 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
     const handleGoBack = () => {
         setSelectedCountry(null)
         setRenderInput(true)
-    }
-
-    useEffect(() => {
-        fetch("https://restcountries.com/v3.1/all")
-          .then(res => res.json())
-          .then(data => console.log(data))
-      },[selectedCountry])
-    
+    }    
 
     const mappedElement = (newData) => newData.map((element, index) => {
         return (

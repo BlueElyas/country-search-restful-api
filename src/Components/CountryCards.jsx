@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from '../../data.json/'
 import Card from "./Card";
 
@@ -7,7 +7,7 @@ export default function CountryCards() {
     const [searchElement, setSearchElement] = useState('')
     const [region, setRegion] = useState('')
     const [renderInput, setRenderInput] = useState(true)
-    // const [countryData, setCountryData] = useState(null)
+    const [countryData, setCountryData] = useState(null)
     
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
@@ -22,6 +22,29 @@ export default function CountryCards() {
             })
 
     const regionData = data.filter(d => d.region === region)
+
+    useEffect(()=>{
+        fetch("https://restcountries.com/v3.1/all")
+            .then(res => res.json())
+            .then(data => setCountryData(data.map(d => {
+                return {
+                    name: d.name.common,
+                    region: d.region,
+                    nativeName: d.cca2,
+                    population: d.population,
+                    capital: d.capital,
+                    identifier: d.cca3,
+                    border: d.borders,
+                    currencies: d.currencies,
+                    languages: d.languages,
+                    subRegion: d.subregion,
+                    topLevelDomain: d.tld,
+                    flag: d.flags,
+                }
+            })))
+    },[])
+
+    console.log(countryData)
 
     return(
         <>
