@@ -3,48 +3,31 @@ import data from '../../data.json/'
 import Card from "./Card";
 
 
-export default function CountryCards() {
+export default function CountryCards( { countryData } ) {
     const [searchElement, setSearchElement] = useState('')
     const [region, setRegion] = useState('')
     const [renderInput, setRenderInput] = useState(true)
-    const [countryData, setCountryData] = useState(null)
     
+
     const handleChange = e => {
         setSearchElement(e.target.value.toLowerCase())
     }
 
-    const regionTypes = Array.from(
-        new Set(data.map(d => d.region)) 
-            ).map((region, index) => {
+
+    console.log(countryData)
+
+
+    const regionTypes = data.map(data => data.region)
+    
+    const uniqRegions = [...new Set(regionTypes)]
+    const mappedRegion = uniqRegions.map((region, index) => {
                 return(
                     <option key={index} value={`${region}`}>{region}</option>
                 )
             })
-
+    
     const regionData = data.filter(d => d.region === region)
-
-    useEffect(()=>{
-        fetch("https://restcountries.com/v3.1/all")
-            .then(res => res.json())
-            .then(data => setCountryData(data.map(d => {
-                return {
-                    name: d.name.common,
-                    region: d.region,
-                    nativeName: d.cca2,
-                    population: d.population,
-                    capital: d.capital,
-                    identifier: d.cca3,
-                    border: d.borders,
-                    currencies: d.currencies,
-                    languages: d.languages,
-                    subRegion: d.subregion,
-                    topLevelDomain: d.tld,
-                    flag: d.flags,
-                }
-            })))
-    },[])
-
-    console.log(countryData)
+    console.log(regionData)
 
     return(
         <>
@@ -53,7 +36,7 @@ export default function CountryCards() {
                 {renderInput ? 
                 <div className="relative"> 
                     <svg 
-                        className="w-8 h-8 absolute top-3 left-2 sm:bottom-5 sm:left-5" 
+                        className="w-8 h-8 absolute top-3 left-2 sm:bottom-5 sm:left-5 " 
                         viewBox="0 0 24 24" 
                         fill="none" 
                         xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +49,8 @@ export default function CountryCards() {
                     </svg>
                     <input 
                         type="text" 
-                        className="bg-white text-gray-700 dark:bg-gray-700 rounded-sm py-4 px-12                        dark:text-gray-200 self-stretch sm:self-start sm:px-16 shadow-md" 
+                        className="bg-white text-gray-700 dark:bg-gray-700 rounded-sm py-4 px-12 pr-16
+                        dark:text-gray-200 sm:px-16 shadow-md w-" 
                         placeholder="Search for a country..." 
                         value={searchElement}
                         onChange={handleChange}
@@ -75,15 +59,15 @@ export default function CountryCards() {
                 {renderInput ? <select 
                     name="region-select" 
                     className="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold 
-                    cursor-pointer py-4 px-8 shadow-md"  
+                    cursor-pointer py-4 px-8 shadow-md mt-6 sm:mt-0"  
                     onChange={(e) => setRegion(e.target.value)}
                     >
                         <option value=''>Filter by region</option>
-                        {regionTypes}
+                        {mappedRegion}
                     </select>: null
                 }
             </div>
-            <div className="flex flex-wrap px-8 pb-16">  
+            <div className="flex flex-wrap px-4 pb-16">  
                 {<Card data={data} searchInput={searchElement} regionData={regionData} setRenderInput={setRenderInput} apiData={countryData}/>}           
             </div>
         </div>
@@ -93,3 +77,4 @@ export default function CountryCards() {
 
 // Create a controlled element
 // if state is positive, filter out countries with name exactly like the search
+

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CountryPage from "./CountryPage";
 
-export default function Card( { data, searchInput, regionData, setRenderInput } ) {
+export default function Card( { data, searchInput, regionData, setRenderInput, apiData } ) {
     const [selectedCountry, setSelectedCountry] = useState(null)
 
     const handleCountryClick = country => {
@@ -28,9 +28,18 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
                     <div className=" px-4 h-1/2 flex flex-col py-2">
                         <h5 className="my-4 font-bold w-3/4">{element.name}</h5>
                         <ul className="w-full ">
-                            <li className="font-bold">Population: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.population.toLocaleString()}</span></li>
-                            <li className="font-bold">Region: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.region}</span></li>
-                            <li className="font-bold">Capital: <span className="font-normal text-gray-700 dark:text-gray-300"> {element.capital}</span></li>
+                            <li className="font-bold">
+                                Population: <span className="font-normal text-gray-700 dark:text-gray-300"> 
+                                {element.population.toLocaleString()}</span>
+                            </li>
+                            <li className="font-bold">
+                                Region: <span className="font-normal text-gray-700 dark:text-gray-300"> 
+                                {element.region}</span>
+                            </li>
+                            <li className="font-bold">
+                                Capital: <span className="font-normal text-gray-700 dark:text-gray-300"> 
+                                {element.capital}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -38,6 +47,8 @@ export default function Card( { data, searchInput, regionData, setRenderInput } 
     })
 
     const mappedRegionData =[...new Set(regionData.map(e=>e.region))]
+
+    console.log(mappedRegionData)
 
     const filteredData = data.filter(e => {
         const eVariable = e.name.toLowerCase().includes(searchInput.toLowerCase())
