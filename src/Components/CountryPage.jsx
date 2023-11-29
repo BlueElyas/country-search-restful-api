@@ -27,14 +27,19 @@ export default function CountryPage( { country, onBack, data, changeCountry } ) 
     return(
         <>
             <div className="text-gray-200 flex flex-col justify-start items-start px-16 h-128">
-                <button 
-                className="mt-16 shadow-md bg-gray-700 py-1 px-4 hover:scale-125 hover:bg-gray-300 hover:text-gray-700 " 
-                onClick={onBack}> Go Back</button>
+                <div className="">
+                    <button 
+                    className="relative mt-16 shadow-md bg-gray-700 py-1 pr-4 pl-12 hover:scale-125 hover:bg-gray-300 hover:text-gray-700 " 
+                    onClick={onBack}>
+                    <svg className="w-9 h-9 absolute left-2 top-[-2px] text-gray-300" fill="#fff" viewBox="0 0 24 24" id="left-arrow" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" ><path id="primary" d="M21,11H5.41l1.3-1.29A1,1,0,0,0,5.29,8.29l-3,3a1,1,0,0,0,0,1.42l3,3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L5.41,13H21a1,1,0,0,0,0-2Z"></path></svg>
+                    Go Back</button>
+
+                </div>
                 <div className="flex justify-center items-center gap-16 mt-8 flex-col sm:flex-row">
                     <img src={country.flags.png} alt={`${country.name} flag`}/>
-                    <div className="">
+                    <div>
                         <h1 className="text-2xl font-bold mb-4">{country.name}</h1>
-                        <div className="">
+                        <div>
                             <ul className="grid grid-cols-2 gap-2 text-sm">
                                 <li>Native Name: <span className="text-gray-400">{country.altSpellings ? country.altSpellings[0] : null}</span></li>
                                 <li>Population: <span className="text-gray-400">{country.population.toLocaleString()}</span></li>
