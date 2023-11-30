@@ -51,7 +51,7 @@ export default function Card( { data, searchInput, regionData, setRenderInput, a
     console.log(mappedRegionData)
 
     const filteredData = data.filter(e => {
-        const eVariable = e.name.toLowerCase().includes(searchInput.toLowerCase())
+        const eVariable = e.name.toLowerCase().includes(searchInput.toLowerCase().trim())
         const eRegion = mappedRegionData[0] ? e.region === mappedRegionData[0] : true
 
         if (searchInput === '' && !eRegion) {
