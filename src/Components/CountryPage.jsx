@@ -53,7 +53,7 @@ export default function CountryPage( { country, onBack, data, changeCountry } ) 
                                 <li>Languages: <span className="text-gray-400">{languages}</span></li>
                             </ul>
                         </div>
-                         { countryBorder ? <div className="mt-10 flex items-center gap-4 flex-wrap">
+                         { countryBorder ? <div className="mt-10 flex items-center gap-4 flex-wrap gap-15">
                             Border Countries: {borderedCountry}
                         </div> : null}
                     </div>

@@ -32,7 +32,8 @@ export default function CountryCards( { countryData } ) {
     return(
         <>
         <div className="bg-gray-100 dark:bg-gray-800 min-h-[85%]">
-            <div className=" px-4 pt-4 pb-2 flex justify-between gap-4 sm:px-12 flex-col items-start sm:flex-row mx-8 sm:mx-0">
+            <div className="  pt-4 pb-2 flex justify-between gap-4 
+            sm:px-12 flex-col items-start sm:flex-row mx-4 sm:mx-0">
                 {renderInput ? 
                 <div className="relative"> 
                     <svg 
@@ -50,7 +51,7 @@ export default function CountryCards( { countryData } ) {
                     <input 
                         type="text" 
                         className="bg-white text-gray-700 dark:bg-gray-700 rounded-sm py-4 px-12 pr-16
-                        dark:text-gray-200 sm:px-16 shadow-md w-" 
+                        dark:text-gray-200 sm:px-16 shadow-md sm:pr-64" 
                         placeholder="Search for a country..." 
                         value={searchElement}
                         onChange={handleChange}
@@ -67,7 +68,7 @@ export default function CountryCards( { countryData } ) {
                     </select>: null
                 }
             </div>
-            <div className="flex flex-wrap px-4 pb-16">  
+            <div className="flex flex-wrap px-4 pb-16 sm:gap-24 sm:px-12">  
                 {<Card data={data} searchInput={searchElement} regionData={regionData} setRenderInput={setRenderInput} apiData={countryData}/>}           
             </div>
         </div>
